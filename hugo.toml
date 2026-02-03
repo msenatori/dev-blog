@@ -1,0 +1,27 @@
+baseURL = 'https://example.org/'
+title = 'Arcou dev'
+theme = "PaperMod"
+defaultContentLanguage = "es"
+
+[languages]
+  [languages.es]
+    languageName = "Español"
+    weight = 1
+    languageCode = "es"
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    languageCode = "en"
+
+[params]
+    env = "production"
+    mainSections = ["posts"]
+    displayRSSLink = true
+    showRecentPosts = true
+    showSocialButtonsInHomePage = true
+
+    [params.profileMode]
+        enabled = false
+
+[params.assets]
+    disableHLJS = false

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Arcou dev</title>
+    <link>http://localhost:1313/en/tags/</link>
+    <description>Recent content in Tags on Arcou dev</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Feb 2026 18:02:42 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:1313/en/tags/blog/</link>
+      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Challenges</title>
+      <link>http://localhost:1313/en/tags/challenges/</link>
+      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/challenges/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Godot</title>
+      <link>http://localhost:1313/en/tags/godot/</link>
+      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/godot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>http://localhost:1313/en/tags/introduction/</link>
+      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/introduction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Weekly</title>
+      <link>http://localhost:1313/en/tags/weekly/</link>
+      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/weekly/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

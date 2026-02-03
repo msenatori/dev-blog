@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godot Challenge Picker | Arcou dev</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <style>
+        :root { 
+            /* Paleta oficial de PaperMod Dark */
+            --theme: #1d1e20;
+            --entry: #2e2e33;
+            --primary: #e0e0e3;
+            --secondary: #a9a9b3;
+            --tertiary: #6e6e73;
+            --content: #d1d1d6;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--theme); 
+            color: var(--primary); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+        }
+
+        .container { 
+            max-width: 550px; 
+            width: 90%; 
+            text-align: center; 
+        }
+
+        .card { 
+            background: var(--entry); 
+            border-radius: 8px; 
+            padding: 40px; 
+            min-height: 220px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            text-align: left; /* Estilo de lista de PaperMod */
+        }
+
+        .meta { 
+            font-size: 0.8rem; 
+            color: var(--secondary); 
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .concept { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            color: var(--primary); 
+            line-height: 1.2;
+        }
+
+        .idea { 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            color: var(--content);
+        }
+
+        button { 
+            margin-top: 40px; 
+            background: var(--primary); 
+            color: var(--theme); 
+            border: none; 
+            padding: 12px 24px; 
+            cursor: pointer; 
+            font-family: inherit; 
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+
+        button:hover { 
+            opacity: 0.9;
+        }
+
+        .back { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: var(--secondary); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            border-bottom: 1px solid transparent;
+        }
+
+        .back:hover {
+            border-bottom: 1px solid var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="display-card" class="card">
+        <p>Iniciando sistema...</p>
+    </div>
+
+    <button onclick="pickRandom()">¿QUÉ CODEAMOS HOY? 🎲</button>
+    <br>
+    <a href="/" class="back">← Volver al blog</a>
+</div>
+
+<script>
+    const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ26qvRG7SyZjl-bt3kD4rhFKskO8fjqf2hePlDY00MIcZu6x--sCyuwuumAA-tMJSIqXd6JYWGA5M9/pub?gid=0&single=true&output=csv';
+    
+    let challenges = [];
+
+    function init() {
+        Papa.parse(SHEET_URL, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                challenges = results.data.filter(r => r.Concepto);
+                pickRandom();
+            },
+            error: function() {
+                document.getElementById('display-card').innerHTML = "Error al conectar con Google Sheets.";
+            }
+        });
+    }
+
+    function pickRandom() {
+        if (challenges.length === 0) return;
+        
+        const item = challenges[Math.floor(Math.random() * challenges.length)];
+
+        document.getElementById('display-card').innerHTML = `
+            <div class="meta">${item.Área} • Dificultad ${item.Dificultad}</div>
+            <div class="concept">${item.Concepto}</div>
+            <div class="idea">${item.BreveIdea}</div>
+            <div class="meta" style="margin-top: 20px; font-size: 0.7rem; opacity: 0.5;">#RETO ${item.Nivel}</div>
+        `;
+    }
+    init();
+</script>
+
+</body>
+</html>
