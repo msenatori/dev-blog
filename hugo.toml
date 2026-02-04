@@ -13,6 +13,10 @@ defaultContentLanguage = "es"
     weight = 2
     languageCode = "en"
 
+[services]
+    [services.googleAnalytics]
+        ID = 'G-0MSZTVVEZQ'
+
 [params]
     env = "production"
     mainSections = ["posts"]
