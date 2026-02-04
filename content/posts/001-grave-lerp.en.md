@@ -8,14 +8,14 @@ cover = { image = "images/001/banner.png", alt = "Original game sketch", caption
 
 The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.
 
-### 💡 Theme & Objective
+### Theme & Objective
 The player is an object that follows the mouse with a smooth delay (**lerp**) and must dodge circular saws.
 
 We want to learn how to make a quick little game using some `RigidBodies` and a `CharacterBody`. It's the first thing I imagine; surely there are thousands of ways to do it, but I'm trying to solve it **however my instinct tells me at the moment**. Obviously, this post was written after development, but next time maybe I'll post the plan before and the result after to see what happened.
 
 ![Gameplay Screenshot](/images/001/gameplay.png)
 
-### ⚙️ The Logic
+### The Logic
 The idea is to move the player and dodge the saws falling from the sky.
 Since it's probably going to be too easy to dodge, I plan to make the game get much faster by **scaling the enemy respawn speed**. I guess to make it a bit more entertaining I'll add a timer to see how far you can get.
 

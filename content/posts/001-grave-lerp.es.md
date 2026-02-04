@@ -8,14 +8,14 @@ cover = { image = "images/001/banner.png", alt = "Boceto original del juego", ca
 
 La idea es simple: romper el hielo y completar un ciclo de desarrollo entero (idea, código, bugfix, deploy) en una sola tarde.
 
-### 💡 Theme & Objetivo
+### Theme & Objetivo
 El jugador es un objeto que sigue al mouse con un delay suave (**lerp**) y debe esquivar sierras circulares.
 
 Queremos aprender cómo hacer un jueguito rápido usando algunos `RigidBody` y un `CharacterBody`. Es lo primero que me imagino; seguro existen miles de formas de hacerlo, pero estoy intentando resolverlo **como me parece al momento de leerlo**. Obviamente este post fue posterior al desarrollo, pero la proxima quizas pongo el post antes y el resultado despues para ver que paso.
 
 ![Gameplay Screenshot](/images/001/gameplay.png)
 
-### ⚙️ La Lógica
+### La Lógica
 La idea del juego es mover al player y esquivar las sierras que vayan cayendo del cielo.
 Como seguro va a ser muy fácil de esquivar, pienso hacer que el juego vaya mucho más rápido, **escalando la velocidad de respawn** de los enemigos. Supongo que para hacerlo un poco más entretenido pondré un timer para saber hasta dónde llegaste.
 
