@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Arcou dev</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Arcou dev</description>
+    <title>Reto on Arcou dev</title>
+    <link>http://localhost:1313/tags/reto/</link>
+    <description>Recent content in Reto on Arcou dev</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>es</language>
     <lastBuildDate>Tue, 03 Feb 2026 19:13:57 -0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/reto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reto #01: Grave Lerp</title>
       <link>http://localhost:1313/posts/001-grave-lerp/</link>
@@ -17,18 +17,6 @@
 &lt;h3 id=&#34;-theme--objetivo&#34;&gt;💡 Theme &amp;amp; Objetivo&lt;/h3&gt;
 &lt;p&gt;El jugador es un objeto que sigue al mouse con un delay suave (&lt;strong&gt;lerp&lt;/strong&gt;) y debe esquivar sierras circulares.&lt;/p&gt;
 &lt;p&gt;Queremos aprender cómo hacer un jueguito rápido usando algunos &lt;code&gt;RigidBody&lt;/code&gt; y un &lt;code&gt;CharacterBody&lt;/code&gt;. Es lo primero que me imagino; seguro existen miles de formas de hacerlo, pero estoy intentando resolverlo &lt;strong&gt;como me parece al momento de leerlo&lt;/strong&gt;, priorizando el instinto sobre la ingeniería compleja.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>One Weekly Jam</title>
-      <link>http://localhost:1313/posts/one-weekly-jam/</link>
-      <pubDate>Tue, 03 Feb 2026 18:02:42 -0300</pubDate>
-      <guid>http://localhost:1313/posts/one-weekly-jam/</guid>
-      <description>&lt;h3 id=&#34;la-intencion&#34;&gt;La intencion&lt;/h3&gt;
-&lt;p&gt;Quiero intentar realizar un pequeño desafio semanal, para ir mejorando
-mis conocimientos en godot, y en videojuegos, voy a intentar ir subiendo
-lo que vaya generando en itch.io, y aca tambien, esperemos que salga, mayormente se queda en la nada estas cosas, pero intentare subir lo que pueda hacer.&lt;/p&gt;
-&lt;p&gt;Los assets, lo mas probable que sea de uso gratuito, o poligonos segun me encuentre en cada situacion.&lt;/p&gt;
-&lt;p&gt;Vamos a ver como sale.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,8 +6,18 @@
     <description>Recent content in Godot on Arcou dev</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 03 Feb 2026 18:02:42 -0300</lastBuildDate>
+    <lastBuildDate>Tue, 03 Feb 2026 19:13:57 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/godot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reto #01: Grave Lerp</title>
+      <link>http://localhost:1313/posts/001-grave-lerp/</link>
+      <pubDate>Tue, 03 Feb 2026 19:13:57 -0300</pubDate>
+      <guid>http://localhost:1313/posts/001-grave-lerp/</guid>
+      <description>&lt;p&gt;Arrancamos con el primero. La idea es simple: romper el hielo y completar un ciclo de desarrollo entero (idea, código, bugfix, deploy) en una sola tarde.&lt;/p&gt;
+&lt;h3 id=&#34;-theme--objetivo&#34;&gt;💡 Theme &amp;amp; Objetivo&lt;/h3&gt;
+&lt;p&gt;El jugador es un objeto que sigue al mouse con un delay suave (&lt;strong&gt;lerp&lt;/strong&gt;) y debe esquivar sierras circulares.&lt;/p&gt;
+&lt;p&gt;Queremos aprender cómo hacer un jueguito rápido usando algunos &lt;code&gt;RigidBody&lt;/code&gt; y un &lt;code&gt;CharacterBody&lt;/code&gt;. Es lo primero que me imagino; seguro existen miles de formas de hacerlo, pero estoy intentando resolverlo &lt;strong&gt;como me parece al momento de leerlo&lt;/strong&gt;, priorizando el instinto sobre la ingeniería compleja.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>One Weekly Jam</title>
       <link>http://localhost:1313/posts/one-weekly-jam/</link>

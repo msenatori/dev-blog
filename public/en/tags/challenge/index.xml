@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Challenge on Arcou dev</title>
+    <link>http://localhost:1313/en/tags/challenge/</link>
+    <description>Recent content in Challenge on Arcou dev</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Feb 2026 19:13:57 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/challenge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Challenge #01: Grave Lerp</title>
+      <link>http://localhost:1313/en/posts/001-grave-lerp/</link>
+      <pubDate>Tue, 03 Feb 2026 19:13:57 -0300</pubDate>
+      <guid>http://localhost:1313/en/posts/001-grave-lerp/</guid>
+      <description>&lt;p&gt;The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.&lt;/p&gt;
+&lt;h3 id=&#34;-theme--objective&#34;&gt;💡 Theme &amp;amp; Objective&lt;/h3&gt;
+&lt;p&gt;The player is an object that follows the mouse with a smooth delay (&lt;strong&gt;lerp&lt;/strong&gt;) and must dodge circular saws.&lt;/p&gt;
+&lt;p&gt;We want to learn how to make a quick little game using some &lt;code&gt;RigidBodies&lt;/code&gt; and a &lt;code&gt;CharacterBody&lt;/code&gt;. It&amp;rsquo;s the first thing I imagine; surely there are thousands of ways to do it, but I&amp;rsquo;m trying to solve it &lt;strong&gt;however my instinct tells me at the moment&lt;/strong&gt;. Obviously, this post was written after development, but next time maybe I&amp;rsquo;ll post the plan before and the result after to see what happened.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

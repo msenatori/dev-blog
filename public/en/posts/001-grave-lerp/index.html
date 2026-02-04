@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Challenge #01: Grave Lerp | Arcou dev</title>
+<meta name="keywords" content="Godot, Devlog, Challenge">
+<meta name="description" content="The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.
+💡 Theme &amp; Objective
+The player is an object that follows the mouse with a smooth delay (lerp) and must dodge circular saws.
+We want to learn how to make a quick little game using some RigidBodies and a CharacterBody. It&rsquo;s the first thing I imagine; surely there are thousands of ways to do it, but I&rsquo;m trying to solve it however my instinct tells me at the moment. Obviously, this post was written after development, but next time maybe I&rsquo;ll post the plan before and the result after to see what happened.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/en/posts/001-grave-lerp/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="es" href="http://localhost:1313/posts/001-grave-lerp/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/en/posts/001-grave-lerp/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/en/posts/001-grave-lerp/">
+  <meta property="og:site_name" content="Arcou dev">
+  <meta property="og:title" content="Challenge #01: Grave Lerp">
+  <meta property="og:description" content="The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.
+💡 Theme &amp; Objective The player is an object that follows the mouse with a smooth delay (lerp) and must dodge circular saws.
+We want to learn how to make a quick little game using some RigidBodies and a CharacterBody. It’s the first thing I imagine; surely there are thousands of ways to do it, but I’m trying to solve it however my instinct tells me at the moment. Obviously, this post was written after development, but next time maybe I’ll post the plan before and the result after to see what happened.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-03T19:13:57-03:00">
+    <meta property="article:modified_time" content="2026-02-03T19:13:57-03:00">
+    <meta property="article:tag" content="Godot">
+    <meta property="article:tag" content="Devlog">
+    <meta property="article:tag" content="Challenge">
+    <meta property="og:image" content="http://localhost:1313/images/001/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/001/banner.png">
+<meta name="twitter:title" content="Challenge #01: Grave Lerp">
+<meta name="twitter:description" content="The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.
+💡 Theme &amp; Objective
+The player is an object that follows the mouse with a smooth delay (lerp) and must dodge circular saws.
+We want to learn how to make a quick little game using some RigidBodies and a CharacterBody. It&rsquo;s the first thing I imagine; surely there are thousands of ways to do it, but I&rsquo;m trying to solve it however my instinct tells me at the moment. Obviously, this post was written after development, but next time maybe I&rsquo;ll post the plan before and the result after to see what happened.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Challenge #01: Grave Lerp",
+      "item": "http://localhost:1313/en/posts/001-grave-lerp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Challenge #01: Grave Lerp",
+  "name": "Challenge #01: Grave Lerp",
+  "description": "The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.\n💡 Theme \u0026amp; Objective The player is an object that follows the mouse with a smooth delay (lerp) and must dodge circular saws.\nWe want to learn how to make a quick little game using some RigidBodies and a CharacterBody. It\u0026rsquo;s the first thing I imagine; surely there are thousands of ways to do it, but I\u0026rsquo;m trying to solve it however my instinct tells me at the moment. Obviously, this post was written after development, but next time maybe I\u0026rsquo;ll post the plan before and the result after to see what happened.\n",
+  "keywords": [
+    "Godot", "Devlog", "Challenge"
+  ],
+  "articleBody": "The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.\n💡 Theme \u0026 Objective The player is an object that follows the mouse with a smooth delay (lerp) and must dodge circular saws.\nWe want to learn how to make a quick little game using some RigidBodies and a CharacterBody. It’s the first thing I imagine; surely there are thousands of ways to do it, but I’m trying to solve it however my instinct tells me at the moment. Obviously, this post was written after development, but next time maybe I’ll post the plan before and the result after to see what happened.\n⚙️ The Logic The idea is to move the player and dodge the saws falling from the sky. Since it’s probably going to be too easy to dodge, I plan to make the game get much faster by scaling the enemy respawn speed. I guess to make it a bit more entertaining I’ll add a timer to see how far you can get.\nFrom Paper to Code The truth is I’m terrible at designing, but well, I imagined something like this, don’t roast me.\nThe Bug of the Day I ran into a classic Godot 4 problem: The saws weren’t detecting the floor. It turns out there is a property that needs to be enabled to activate collision reporting.\nConfigure Contact Monitor on the RigidBody to detect impact. Set Max Contact Report to 1. Completed Tasks Create main Node2D scene and attach a Level Controller to orchestrate everything. Add a CanvasLayer to set up all the UI. Add logic to Instantiate/Delete enemies (no complex Arrays, pure web performance). CharacterBody with smoothed movement (Lerp). Add Reset Level button (Instant Game Over). Add a TileMap to build the level quickly. Notes It probably won’t have sound, I don’t think I’ll make it (and I didn’t 😅). I didn’t sit down to figure out how to configure a complex theme; that’s pending for next time. Play The game runs natively in the browser.\n👉 Play on Itch.io\nAssets: Pixel Adventure 1 by Pixel Frog.\nApproximate time: 2 hours. translate by: Google translator.\n",
+  "wordCount" : "363",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/images/001/banner.png","datePublished": "2026-02-03T19:13:57-03:00",
+  "dateModified": "2026-02-03T19:13:57-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/en/posts/001-grave-lerp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arcou dev",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/en/" accesskey="h" title="Arcou dev (Alt + H)">Arcou dev</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                    <ul class="lang-switch"><li>|</li>
+                        <li>
+                            <a href="http://localhost:1313/" title="Español"
+                                aria-label="Español">Es</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Challenge #01: Grave Lerp
+    </h1>
+    <div class="post-meta"><span title='2026-02-03 19:13:57 -0300 -03'>February 3, 2026</span>&nbsp;|&nbsp;<span>Translations:</span>
+<ul class="i18n_list">
+    <li>
+        <a href="http://localhost:1313/posts/001-grave-lerp/">Es</a>
+    </li>
+</ul>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/001/banner.png" alt="Original game sketch">
+        <figcaption>The original plan on paper</figcaption>
+</figure>
+  <div class="post-content"><p>The idea is simple: break the ice and complete a full development cycle (idea, code, bugfix, deploy) in a single afternoon.</p>
+<h3 id="-theme--objective">💡 Theme &amp; Objective<a hidden class="anchor" aria-hidden="true" href="#-theme--objective">#</a></h3>
+<p>The player is an object that follows the mouse with a smooth delay (<strong>lerp</strong>) and must dodge circular saws.</p>
+<p>We want to learn how to make a quick little game using some <code>RigidBodies</code> and a <code>CharacterBody</code>. It&rsquo;s the first thing I imagine; surely there are thousands of ways to do it, but I&rsquo;m trying to solve it <strong>however my instinct tells me at the moment</strong>. Obviously, this post was written after development, but next time maybe I&rsquo;ll post the plan before and the result after to see what happened.</p>
+<p><img alt="Gameplay Screenshot" loading="lazy" src="/images/001/gameplay.png"></p>
+<h3 id="-the-logic">⚙️ The Logic<a hidden class="anchor" aria-hidden="true" href="#-the-logic">#</a></h3>
+<p>The idea is to move the player and dodge the saws falling from the sky.
+Since it&rsquo;s probably going to be too easy to dodge, I plan to make the game get much faster by <strong>scaling the enemy respawn speed</strong>. I guess to make it a bit more entertaining I&rsquo;ll add a timer to see how far you can get.</p>
+<h4 id="from-paper-to-code">From Paper to Code<a hidden class="anchor" aria-hidden="true" href="#from-paper-to-code">#</a></h4>
+<p>The truth is I&rsquo;m terrible at designing, but well, I imagined something like this, don&rsquo;t roast me.</p>
+<p><img alt="Original Sketch" loading="lazy" src="/images/001/idea.png"></p>
+<h3 id="the-bug-of-the-day">The Bug of the Day<a hidden class="anchor" aria-hidden="true" href="#the-bug-of-the-day">#</a></h3>
+<p>I ran into a classic Godot 4 problem: The saws weren&rsquo;t detecting the floor.
+It turns out there is a property that needs to be enabled to activate collision reporting.</p>
+<ol>
+<li>Configure <strong>Contact Monitor</strong> on the RigidBody to detect impact.</li>
+<li>Set <strong>Max Contact Report</strong> to 1.</li>
+</ol>
+<h3 id="completed-tasks">Completed Tasks<a hidden class="anchor" aria-hidden="true" href="#completed-tasks">#</a></h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Create main <code>Node2D</code> scene and attach a Level Controller to orchestrate everything.</li>
+<li><input checked="" disabled="" type="checkbox"> Add a CanvasLayer to set up all the UI.</li>
+<li><input checked="" disabled="" type="checkbox"> Add logic to <strong>Instantiate/Delete</strong> enemies (no complex Arrays, pure web performance).</li>
+<li><input checked="" disabled="" type="checkbox"> <code>CharacterBody</code> with smoothed movement (Lerp).</li>
+<li><input checked="" disabled="" type="checkbox"> Add <em>Reset Level</em> button (Instant Game Over).</li>
+<li><input checked="" disabled="" type="checkbox"> Add a TileMap to build the level quickly.</li>
+</ul>
+<h3 id="notes">Notes<a hidden class="anchor" aria-hidden="true" href="#notes">#</a></h3>
+<ul>
+<li>It probably won&rsquo;t have sound, I don&rsquo;t think I&rsquo;ll make it (and I didn&rsquo;t 😅).</li>
+<li>I didn&rsquo;t sit down to figure out how to configure a complex theme; that&rsquo;s pending for next time.</li>
+</ul>
+<h3 id="play">Play<a hidden class="anchor" aria-hidden="true" href="#play">#</a></h3>
+<p>The game runs natively in the browser.</p>
+<p><a href="https://youruser.itch.io/graveee-lerp">👉 Play on Itch.io</a></p>
+<hr>
+<p><strong>Assets:</strong> <a href="https://pixelfrog-assets.itch.io/pixel-adventure-1">Pixel Adventure 1</a> by Pixel Frog.</p>
+<p><strong>Approximate time:</strong> 2 hours.
+<strong>translate by:</strong> Google translator.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/en/tags/godot/">Godot</a></li>
+      <li><a href="http://localhost:1313/en/tags/devlog/">Devlog</a></li>
+      <li><a href="http://localhost:1313/en/tags/challenge/">Challenge</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/en/">Arcou dev</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
