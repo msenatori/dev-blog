@@ -13,7 +13,7 @@ El jugador es un objeto que sigue al mouse con un delay suave (**lerp**) y debe 
 
 Queremos aprender cómo hacer un jueguito rápido usando algunos `RigidBody` y un `CharacterBody`. Es lo primero que me imagino; seguro existen miles de formas de hacerlo, pero estoy intentando resolverlo **como me parece al momento de leerlo**. Obviamente este post fue posterior al desarrollo, pero la proxima quizas pongo el post antes y el resultado despues para ver que paso.
 
-![Gameplay Screenshot](/images/001/gameplay.png)
+![Gameplay Screenshot](images/001/gameplay.png)
 
 ### La Lógica
 La idea del juego es mover al player y esquivar las sierras que vayan cayendo del cielo.
@@ -22,7 +22,7 @@ Como seguro va a ser muy fácil de esquivar, pienso hacer que el juego vaya much
 #### Del Papel al Código
 La verdad soy horrible diseñando, pero bueno me imagine algo asi, no me maten.
 
-![Boceto Original](/images/001/idea.png)
+![Boceto Original](images/001/idea.png)
 
 ### El Bug del Día:
 Me encontré con un problema clásico de Godot 4: Las sierras no detectaban el piso.
